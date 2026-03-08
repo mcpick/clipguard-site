@@ -1,0 +1,26 @@
+---
+export interface Props {
+  title?: string;
+  width?: string;
+}
+
+const { title = "", width = "100%" } = Astro.props;
+---
+
+<div class="mock-window" style={`width: ${width}; max-width: 100%;`}>
+  <div class="mock-window-titlebar">
+    <div class="traffic-lights">
+      <div class="traffic-light red"></div>
+      <div class="traffic-light yellow"></div>
+      <div class="traffic-light green"></div>
+    </div>
+    {title && (
+      <div style="flex: 1; text-align: center; font-size: 13px; color: #666; font-weight: 500;">
+        {title}
+      </div>
+    )}
+  </div>
+  <div class="mock-window-content">
+    <slot />
+  </div>
+</div>

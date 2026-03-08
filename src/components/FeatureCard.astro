@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="card" style="text-align: center; transition: transform 0.2s ease; height: 100%;">
+  <div style="font-size: 40px; margin-bottom: 16px;">{icon}</div>
+  <h3 style="margin-bottom: 12px; font-size: 18px;">{title}</h3>
+  <p class="text-secondary" style="margin: 0; font-size: 14px; line-height: 1.5;">{description}</p>
+</div>
+
+<style>
+  .card:hover {
+    transform: translateY(-2px);
+  }
+</style>

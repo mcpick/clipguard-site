@@ -1,0 +1,44 @@
+---
+export interface Props {
+  platform: string;
+  icon: string;
+  downloads: Array<{
+    name: string;
+    url: string;
+    description: string;
+  }>;
+  recommended?: string;
+}
+
+const { platform, icon, downloads, recommended } = Astro.props;
+---
+
+<div class="card">
+  <div style="display: flex; align-items: center; margin-bottom: 16px;">
+    <div style="font-size: 32px; margin-right: 12px;">{icon}</div>
+    <h3 style="margin: 0; font-size: 20px; font-weight: 600;">{platform}</h3>
+  </div>
+  
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    {downloads.map((download) => (
+      <a 
+        href={download.url}
+        class={`btn ${download.name === recommended ? 'btn-primary' : 'btn-secondary'}`}
+        style="text-decoration: none; justify-content: space-between;"
+        download
+      >
+        <div>
+          <div style="font-weight: 500;">{download.name}</div>
+          <div style={`font-size: 12px; opacity: 0.8; ${download.name === recommended ? 'color: rgba(255,255,255,0.9)' : ''}`}>
+            {download.description}
+          </div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7,10 12,15 17,10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </a>
+    ))}
+  </div>
+</div>

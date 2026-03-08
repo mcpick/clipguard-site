@@ -1,0 +1,23 @@
+{
+  "name": "clipguard-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "fmt:check": "prettier --check .",
+    "fmt": "prettier --write .",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.3.1",
+    "astro": "^5.17.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "prettier": "^3.4.2",
+    "typescript": "^5.9.3"
+  }
+}
