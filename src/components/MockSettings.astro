@@ -1,74 +1,218 @@
 ---
 ---
 
-<div style="padding: 20px; background: white;">
+<div class="mock-settings">
   <!-- Header Section -->
-  <div style="margin-bottom: 24px;">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-      <h2 style="margin: 0; font-size: 20px; font-weight: 600;">Protection</h2>
-      <div style="position: relative; display: inline-block;">
-        <div style="width: 44px; height: 24px; background: #34c759; border-radius: 12px; position: relative; cursor: pointer;">
-          <div style="position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></div>
-        </div>
+  <div class="settings-section">
+    <div class="settings-row">
+      <h2 class="settings-heading">Protection</h2>
+      <div class="toggle toggle-on">
+        <div class="toggle-knob"></div>
       </div>
     </div>
-    <p style="margin: 0; color: #86868b; font-size: 14px;">Monitor clipboard operations and alert on suspicious activity</p>
+    <p class="settings-desc">Monitor clipboard operations and alert on suspicious activity</p>
   </div>
 
   <!-- Settings Section -->
-  <div style="margin-bottom: 24px;">
-    <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 12px 0;">Settings</h3>
-    <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05);">
-      <span style="font-size: 14px;">Launch at login</span>
-      <div style="width: 44px; height: 24px; background: #34c759; border-radius: 12px; position: relative;">
-        <div style="position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></div>
+  <div class="settings-section">
+    <h3 class="settings-subheading">Settings</h3>
+    <div class="settings-row settings-item">
+      <span class="settings-label">Launch at login</span>
+      <div class="toggle toggle-on">
+        <div class="toggle-knob"></div>
       </div>
     </div>
   </div>
 
   <!-- Rules Section -->
   <div>
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-      <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Rules</h3>
-      <button style="padding: 6px 12px; background: #007aff; color: white; border: none; border-radius: 6px; font-size: 12px; cursor: pointer;">
-        Add Rule
-      </button>
+    <div class="settings-row rules-header">
+      <h3 class="settings-subheading" style="margin: 0;">Rules</h3>
+      <button class="add-rule-btn">Add Rule</button>
     </div>
-    
+
     <!-- Rule 1 -->
-    <div style="background: #f8f9fa; border-radius: 8px; padding: 16px; margin-bottom: 12px; border: 1px solid rgba(0,0,0,0.05);">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-weight: 500; font-size: 14px;">Chrome</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="color: #86868b;">
+    <div class="rule-card rule-card-mb">
+      <div class="settings-row rule-header">
+        <div class="rule-apps">
+          <span class="rule-app-name">Chrome</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="rule-arrow">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span style="font-weight: 500; font-size: 14px;">Terminal</span>
+          <span class="rule-app-name">Terminal</span>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <span style="background: #ff9500; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">BLOCK</span>
-          <button style="background: none; border: none; color: #86868b; cursor: pointer; padding: 4px;">⋯</button>
+        <div class="rule-actions">
+          <span class="badge badge-accent">BLOCK</span>
+          <button class="rule-menu-btn">&ctdot;</button>
         </div>
       </div>
-      <p style="margin: 0; color: #86868b; font-size: 12px;">Block paste operations from Chrome to Terminal</p>
+      <p class="rule-desc">Block paste operations from Chrome to Terminal</p>
     </div>
-    
+
     <!-- Rule 2 -->
-    <div style="background: #f8f9fa; border-radius: 8px; padding: 16px; border: 1px solid rgba(0,0,0,0.05);">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-weight: 500; font-size: 14px;">Any App</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="color: #86868b;">
+    <div class="rule-card">
+      <div class="settings-row rule-header">
+        <div class="rule-apps">
+          <span class="rule-app-name">Any App</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="rule-arrow">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span style="font-weight: 500; font-size: 14px;">All Apps</span>
+          <span class="rule-app-name">All Apps</span>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <span style="background: #007aff; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;">NOTIFY</span>
-          <button style="background: none; border: none; color: #86868b; cursor: pointer; padding: 4px;">⋯</button>
+        <div class="rule-actions">
+          <span class="badge badge-info">NOTIFY</span>
+          <button class="rule-menu-btn">&ctdot;</button>
         </div>
       </div>
-      <p style="margin: 0; color: #86868b; font-size: 12px;">Show notifications for all cross-app paste operations</p>
+      <p class="rule-desc">Show notifications for all cross-app paste operations</p>
     </div>
   </div>
 </div>
+
+<style>
+  .mock-settings {
+    padding: 20px;
+    background: var(--color-surface);
+  }
+
+  .settings-section {
+    margin-bottom: 24px;
+  }
+
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settings-heading {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .settings-desc {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .settings-subheading {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+  }
+
+  .settings-label {
+    font-size: 14px;
+  }
+
+  .settings-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .toggle {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .toggle-on {
+    background: var(--color-primary);
+  }
+
+  .toggle-knob {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .rules-header {
+    margin-bottom: 16px;
+  }
+
+  .add-rule-btn {
+    padding: 6px 12px;
+    background: var(--color-info);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .rule-card {
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .rule-card-mb {
+    margin-bottom: 12px;
+  }
+
+  .rule-header {
+    margin-bottom: 8px;
+  }
+
+  .rule-apps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rule-app-name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .rule-arrow {
+    color: var(--color-text-secondary);
+  }
+
+  .rule-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .badge {
+    color: white;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .badge-accent {
+    background: var(--color-accent);
+  }
+
+  .badge-info {
+    background: var(--color-info);
+  }
+
+  .rule-menu-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .rule-desc {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 12px;
+  }
+</style>

@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
 import PlatformCard from '../components/PlatformCard.astro';
+
+const base = import.meta.env.BASE_URL;
 
 const macosDownloads = [
   {
@@ -51,20 +54,18 @@ const linuxDownloads = [
 
 <BaseLayout title="Download - Clipboard Guard">
   <Header />
-  
+
   <main>
     <!-- Header Section -->
     <section class="section">
       <div class="container text-center">
-        <h1 style="font-size: 42px; margin-bottom: 16px; font-weight: 700;">
-          Download Clipboard Guard
-        </h1>
-        <p style="font-size: 18px; color: #86868b; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <h1 class="page-title">Download Clipboard Guard</h1>
+        <p class="page-subtitle text-secondary">
           Get started with clipboard protection in seconds. Choose the right version for your platform.
         </p>
-        
-        <div class="card" style="background: #f0f8ff; border-left: 4px solid #007aff; max-width: 600px; margin: 0 auto; text-align: left;">
-          <p style="margin: 0; font-size: 14px; color: #1d1d1f;">
+
+        <div class="card card-autodetect">
+          <p class="autodetect-text">
             <strong>Auto-detect:</strong> We'll try to detect your platform automatically below. All downloads are free and open source.
           </p>
         </div>
@@ -72,36 +73,36 @@ const linuxDownloads = [
     </section>
 
     <!-- Platform Detection -->
-    <section class="section" style="background: white;">
+    <section class="section section-surface">
       <div class="container">
-        <div id="platform-detection" style="text-align: center; margin-bottom: 40px; padding: 20px; background: #f8f9fa; border-radius: 12px; display: none;">
-          <h3 style="margin: 0 0 8px 0; color: #34c759;">Detected Platform</h3>
-          <p id="detected-platform" style="margin: 0; color: #86868b; font-size: 14px;"></p>
+        <div id="platform-detection" class="detection-banner">
+          <h3 class="detection-title">Detected Platform</h3>
+          <p id="detected-platform" class="detection-text text-secondary"></p>
         </div>
 
-        <div class="grid grid-3" style="max-width: 1000px; margin: 0 auto;">
+        <div class="grid grid-3 platform-grid">
           <div id="macos-card">
             <PlatformCard
               platform="macOS"
-              icon="🍎"
+              icon="apple"
               downloads={macosDownloads}
               recommended="Apple Silicon"
             />
           </div>
-          
+
           <div id="windows-card">
             <PlatformCard
               platform="Windows"
-              icon="🪟"
+              icon="windows"
               downloads={windowsDownloads}
               recommended="Installer"
             />
           </div>
-          
+
           <div id="linux-card">
             <PlatformCard
               platform="Linux"
-              icon="🐧"
+              icon="linux"
               downloads={linuxDownloads}
               recommended="AppImage"
             />
@@ -113,20 +114,26 @@ const linuxDownloads = [
     <!-- Installation Notes -->
     <section class="section">
       <div class="container">
-        <div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
+        <div class="grid grid-2 notes-grid">
           <div class="card">
-            <h3 style="margin-bottom: 12px; color: #34c759;">📦 Installation</h3>
-            <ul style="margin: 0; padding-left: 20px; color: #86868b; font-size: 14px; line-height: 1.6;">
+            <h3 class="notes-heading notes-heading-primary">
+              <span class="notes-icon"><Icon name="package" size={20} /></span>
+              Installation
+            </h3>
+            <ul class="notes-list text-secondary">
               <li>Download and run the installer for your platform</li>
               <li>Grant necessary permissions when prompted</li>
               <li>Clipboard Guard will start automatically</li>
               <li>Look for the icon in your system tray/menu bar</li>
             </ul>
           </div>
-          
+
           <div class="card">
-            <h3 style="margin-bottom: 12px; color: #007aff;">🔐 Permissions</h3>
-            <ul style="margin: 0; padding-left: 20px; color: #86868b; font-size: 14px; line-height: 1.6;">
+            <h3 class="notes-heading notes-heading-info">
+              <span class="notes-icon"><Icon name="lock" size={20} /></span>
+              Permissions
+            </h3>
+            <ul class="notes-list text-secondary">
               <li><strong>macOS:</strong> Accessibility access required for paste blocking</li>
               <li><strong>Windows:</strong> May trigger antivirus due to clipboard monitoring</li>
               <li><strong>Linux:</strong> No special permissions required</li>
@@ -138,37 +145,30 @@ const linuxDownloads = [
     </section>
 
     <!-- Additional Links -->
-    <section class="section" style="background: white;">
+    <section class="section section-surface">
       <div class="container text-center">
-        <h3 style="margin-bottom: 24px;">Need something else?</h3>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="https://github.com/mcpick/clipguard/releases" target="_blank" class="btn btn-secondary" style="text-decoration: none;">
-            All Releases
-          </a>
-          <a href="/docs" class="btn btn-secondary" style="text-decoration: none;">
-            Documentation
-          </a>
-          <a href="https://github.com/mcpick/clipguard" target="_blank" class="btn btn-secondary" style="text-decoration: none;">
-            Source Code
-          </a>
+        <h3 class="extra-links-title">Need something else?</h3>
+        <div class="extra-links">
+          <a href="https://github.com/mcpick/clipguard/releases" target="_blank" class="btn btn-secondary">All Releases</a>
+          <a href={`${base}docs`} class="btn btn-secondary">Documentation</a>
+          <a href="https://github.com/mcpick/clipguard" target="_blank" class="btn btn-secondary">Source Code</a>
         </div>
       </div>
     </section>
   </main>
-  
+
   <Footer />
 
   <!-- Platform Detection Script -->
   <script>
-    // Simple platform detection
     function detectPlatform() {
       const userAgent = navigator.userAgent.toLowerCase();
       const detectionDiv = document.getElementById('platform-detection');
       const detectedPlatformText = document.getElementById('detected-platform');
-      
+
       let platform = 'unknown';
-      let card = null;
-      
+      let card: HTMLElement | null = null;
+
       if (userAgent.includes('mac')) {
         platform = 'macOS';
         card = document.getElementById('macos-card');
@@ -179,20 +179,119 @@ const linuxDownloads = [
         platform = 'Linux';
         card = document.getElementById('linux-card');
       }
-      
+
       if (platform !== 'unknown' && card && detectedPlatformText && detectionDiv) {
         detectedPlatformText.textContent = `We detected you're using ${platform}. The recommended download is highlighted below.`;
         detectionDiv.style.display = 'block';
-        
-        // Add highlight to detected platform
-        card.style.transform = 'scale(1.02)';
-        card.style.boxShadow = '0 8px 32px rgba(52, 199, 89, 0.2)';
-        card.style.border = '2px solid #34c759';
-        card.style.borderRadius = '14px';
+        card.classList.add('detected');
       }
     }
-    
-    // Run detection when page loads
+
     document.addEventListener('DOMContentLoaded', detectPlatform);
   </script>
 </BaseLayout>
+
+<style>
+  .page-title {
+    font-size: 40px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-autodetect {
+    background: var(--color-info-bg);
+    border-left: 4px solid var(--color-info);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .autodetect-text {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-text);
+  }
+
+  .section-surface {
+    background: var(--color-surface);
+  }
+
+  .detection-banner {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-lg);
+    display: none;
+  }
+
+  .detection-title {
+    margin: 0 0 8px 0;
+    color: var(--color-primary);
+  }
+
+  .detection-text {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .platform-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  :global(.detected) {
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .notes-grid {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .notes-heading {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .notes-heading-primary {
+    color: var(--color-primary);
+  }
+
+  .notes-heading-info {
+    color: var(--color-info);
+  }
+
+  .notes-icon {
+    display: flex;
+  }
+
+  .notes-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .extra-links-title {
+    margin-bottom: 24px;
+  }
+
+  .extra-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

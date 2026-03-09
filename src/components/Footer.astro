@@ -1,29 +1,81 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
-<footer style="background: white; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 80px;">
+<footer class="footer">
   <div class="container">
-    <div style="padding: 40px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+    <div class="footer-inner">
       <div>
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+        <div class="footer-brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
             <path d="M8 8h8M8 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <span style="font-weight: 600;">Clipboard Guard</span>
+          <span class="footer-brand-name">Clipboard Guard</span>
         </div>
-        <p class="text-secondary" style="margin: 0; font-size: 14px;">
-          Made by <a href="https://jack.mcpickle.com.au" target="_blank" style="color: #34c759; text-decoration: none;">Jack McNicol</a> • 
-          <a href="https://github.com/mcpick/clipguard/blob/main/LICENSE" target="_blank" style="color: #86868b; text-decoration: none;">MIT License</a>
+        <p class="footer-credits">
+          Made by <a href="https://jack.mcpickle.com.au" target="_blank" class="footer-link-primary">Jack McNicol</a> &bull;
+          <a href="https://github.com/mcpick/clipguard/blob/main/LICENSE" target="_blank" class="footer-link-secondary">MIT License</a>
         </p>
       </div>
-      
-      <div style="display: flex; gap: 24px; flex-wrap: wrap;">
-        <a href="https://github.com/mcpick/clipguard" target="_blank" rel="noopener" style="color: #86868b; text-decoration: none; font-size: 14px;">GitHub</a>
-        <a href="/download" style="color: #86868b; text-decoration: none; font-size: 14px;">Download</a>
-        <a href="/docs" style="color: #86868b; text-decoration: none; font-size: 14px;">Docs</a>
-        <a href="https://github.com/mcpick/clipguard/releases" target="_blank" rel="noopener" style="color: #86868b; text-decoration: none; font-size: 14px;">Releases</a>
+
+      <div class="footer-links">
+        <a href="https://github.com/mcpick/clipguard" target="_blank" rel="noopener" class="footer-link-secondary">GitHub</a>
+        <a href={`${base}download`} class="footer-link-secondary">Download</a>
+        <a href={`${base}docs`} class="footer-link-secondary">Docs</a>
+        <a href="https://github.com/mcpick/clipguard/releases" target="_blank" rel="noopener" class="footer-link-secondary">Releases</a>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    margin-top: 80px;
+  }
+
+  .footer-inner {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand-name {
+    font-weight: 600;
+  }
+
+  .footer-credits {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-link-primary {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .footer-link-secondary {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+</style>
